@@ -47,6 +47,9 @@ class Bench
   end
 
   def run(inputs)
+    
+    yield(inputs.dup.push(100).min) # warmup
+    
     parameterized inputs do |input|
       n.times do
         start = Time.now
